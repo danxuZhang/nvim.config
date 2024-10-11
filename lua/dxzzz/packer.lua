@@ -39,4 +39,6 @@ return require('packer').startup(function(use)
 	use({'williamboman/mason-lspconfig.nvim'})
 
     use { 'voldikss/vim-floaterm' }
+
+    use { 'nvim-lualine/lualine.nvim' }
 end)
