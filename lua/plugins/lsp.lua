@@ -89,7 +89,6 @@ return {
                 ensure_installed = {
                     'bashls', 
                     'clangd', 
-                    'gopls', 
                     'pyright'
                 },
                 handlers = {
