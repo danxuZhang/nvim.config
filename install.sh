@@ -2,17 +2,17 @@
 set -euo pipefail  # Exit on error, undefined vars, and pipe failures
 
 # Default configurations (can be overridden via environment variables)
-: "${NVIM_VERSION:=0.10.2}"
+: "${NVIM_VERSION:=0.10.4}"
 : "${NODE_VERSION:=22.11.0}"
-: "${INSTALL_ROOT:=/scratch/apps}"
-: "${MODULES_ROOT:=/scratch/modulefiles}"
+: "${INSTALL_ROOT:=$HOME/apps}"
+: "${MODULES_ROOT:=$HOME/apps/modulefiles}"
 
 # Derived paths
 INSTALL_PREFIX="${INSTALL_ROOT}/neovim/${NVIM_VERSION}"
 MODULE_PATH="${MODULES_ROOT}/neovim"
 
 # Download URLs
-NVIM_URL="https://github.com/neovim/neovim/releases/download/v${NVIM_VERSION}/nvim-linux64.tar.gz"
+NVIM_URL="https://github.com/neovim/neovim/releases/download/v${NVIM_VERSION}/nvim-linux-x86_64.tar.gz"
 NODE_URL="https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz"
 
 # Temporary directory for downloads
@@ -24,8 +24,7 @@ log() { echo "[$(date +'%Y-%m-%d %H:%M:%S')] $*"; }
 error() { log "ERROR: $*" >&2; exit 1; }
 
 # Check for existing installation
-if [ -d "${INSTALL_PREFIX}" ]; then
-    error "Installation directory ${INSTALL_PREFIX} already exists"
+if [ -d "${INSTALL_PREFIX}" ]; then error "Installation directory ${INSTALL_PREFIX} already exists"
 fi
 
 # Download and extract archives

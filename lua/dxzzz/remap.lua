@@ -27,7 +27,7 @@ function format_file()
     local filetype = vim.bo.filetype
     if filetype == 'cpp' then
         -- Format C++ files using clang-format with LLVM style
-        vim.cmd('%!clang-format --style=llvm')
+        vim.cmd('%!clang-format - ')
     elseif filetype == 'python' then
         -- Format Python files using Black
         vim.cmd('%!black -q -')
