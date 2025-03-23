@@ -89,6 +89,7 @@ return {
                 ensure_installed = {
                     'bashls', 
                     'clangd', 
+                    'clang-format',
                     'pyright'
                 },
                 handlers = {
